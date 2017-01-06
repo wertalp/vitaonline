@@ -1,0 +1,649 @@
+/*--------------------------------------------------------------------------
+
+  Theme Name: Pessoal
+  Description: Resume Theme for Bootstrap
+  Author: Tamashi Interactive
+  Author URI: http://www.tamashi-interactive.com
+  Version: 2.0.0
+
+----------------------------------------------------------------------------
+
+  Stylesheet Contents
+
+  0. Global styles
+  1. Navbar
+  2. Global info
+  3. Resume container
+  3. Typography
+  4. Resume card + Sidenote
+  5. Footer
+  6. Print
+
+/* ==========================================================================
+0. Global styles
+========================================================================== */
+
+body {
+	font-family: @sans-serif;
+  #gradient.triple-directional(@start-color: spin(@main-1, 10); @mid-color:darken(@main-1, 12%); @end-color: spin(@main-1, -10); @deg: 140deg);
+  background-color: @main-1;
+  padding-top: @navbar-height + @global-info-height + 40px;
+}
+
+a,
+button {
+  transition: all .2s ease-in-out;
+}
+
+a {
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+.container {
+  .container-fixed();
+
+  @media (min-width: @screen-sm-min) {
+    width: 100%;
+  }
+  @media (min-width: @screen-md-min) {
+    width: @container-md;
+  }
+  @media (min-width: @screen-lg-min) {
+    width: @container-lg;
+  }
+}
+
+#gradient {
+  .triple-directional(@start-color: #555; @mid-color:#000; @end-color: #333; @deg: 45deg) {
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(@deg, @start-color, @mid-color, @end-color); // Safari 5.1-6, Chrome 10+
+    background-image: -o-linear-gradient(@deg, @start-color, @mid-color, @end-color); // Opera 12
+    background-image: linear-gradient(@deg, @start-color, @mid-color, @end-color); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  }
+}
+
+/* ==========================================================================
+1. Navbar overwrites
+========================================================================== */
+
+.navbar-default {
+  .navbar-nav {
+    > li > a {
+      margin-right: 15px;
+      margin-left: 15px;
+      padding-right: 0;
+      padding-left: 0;
+      color: @navbar-inverse-link-color;
+      border-bottom: 2px solid transparent;
+      &:hover,
+      &:focus {
+        color: @navbar-inverse-link-hover-color;
+        border-bottom: 2px solid @navbar-inverse-link-hover-color;
+        background-color: @navbar-inverse-link-hover-bg;
+      }
+    }
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-inverse-link-active-color;
+        border-bottom: 2px solid @navbar-inverse-link-hover-color;
+        background-color: @navbar-inverse-link-active-bg;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-inverse-link-disabled-color;
+        background-color: @navbar-inverse-link-disabled-bg;
+      }
+    }
+  }
+}
+
+.navbar-inverse {
+  .navbar-nav {
+    > li > a {
+      margin-right: 13px;
+      margin-left: 13px;
+      padding-right: 0;
+      padding-left: 0;
+      color: @navbar-inverse-link-color;
+      border-bottom: 2px solid transparent;
+      &:hover,
+      &:focus {
+        color: @navbar-inverse-link-hover-color;
+        border-bottom: 2px solid @navbar-inverse-link-hover-color;
+        background-color: @navbar-inverse-link-hover-bg;
+      }
+    }
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-inverse-link-active-color;
+        border-bottom: 2px solid @navbar-inverse-link-hover-color;
+        background-color: @navbar-inverse-link-active-bg;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-inverse-link-disabled-color;
+        background-color: @navbar-inverse-link-disabled-bg;
+      }
+    }
+  }
+}
+
+.navbar-brand {
+  font-size: 27px;
+  font-weight: normal;
+  line-height: .6;
+}
+
+.navbar-toggle {
+  border: none;
+  background-color: @main-1;
+}
+
+.navbar li > a {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.quick-links {
+  i {
+    font-size: 16px;
+  }
+}
+
+/* ==========================================================================
+2. Global info
+========================================================================== */
+
+.global-info {
+  position: fixed;
+  z-index: 1;
+  top: @navbar-height;
+  width: 100%;
+  height: @global-info-height - 10px;
+  background-color: lighten(#1e1e1e, 2%);
+
+  @media (min-width: @screen-xs-min) {
+    height: @global-info-height;
+  }
+
+  // &:after {
+  //   position: absolute;
+  //   z-index: -1;
+  //   top: 0;
+  //   left: 0;
+  //   display: block;
+  //   width: 100%;
+  //   height: 100%;
+  //   content: ' ';
+  //   opacity: .1;
+  //   background-image: url('../img/global-info/background.jpg');
+  //   background-repeat: no-repeat;
+  //   background-position: center center;
+  //   -webkit-background-size: cover;
+  //      -moz-background-size: cover;
+  //        -o-background-size: cover;
+  //           background-size: cover;
+  //       -ms-background-size: cover;
+  // }
+
+  .avatar,
+  .name-jobtitle {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .name-jobtitle {
+    position: relative;
+    top: 15px;
+  }
+
+  .name-jobtitle .title {
+    font-size: 23px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    @media (min-width: @screen-xs-min) {
+      font-size: 26px;
+    }
+
+    small {
+      font-size: 62%;
+      display: block;
+      padding-bottom: 5px;
+    }
+  }
+
+  .avatar {
+    position: relative;
+    top: 30px;
+    overflow: hidden;
+    margin-right: 35px;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, .15);
+  }
+
+  .avatar img {
+    max-width: 80px;
+    border-radius: 50%;
+
+    @media (min-width: @screen-xs-min) {
+      max-width: 100px;
+    }
+  }
+}
+
+.address-contact {
+  position: relative;
+  top: 34px;
+  float: right;
+
+  .address {
+    margin-right: 50px;
+  }
+
+  .address,
+  .contact {
+    font-size: 14px;
+    display: inline-block;
+
+    span,
+    p {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    span {
+      padding-right: 15px;
+      color: #fff;
+    }
+
+    p {
+      font-weight: normal;
+      margin: 0;
+      padding-left: 15px;
+      color: #acacac;
+      border-left: 1px solid rgba(255, 255, 255, .1);
+    }
+  }
+}
+
+/* ==========================================================================
+3. Resume container
+========================================================================== */
+
+.resume-container {
+  position: relative;
+  top: -60px;
+  width: 95%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-top: 130px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 11px 40px 0 rgba(0, 0, 0, .3);
+  @media (max-width: @screen-md-min) {
+    padding: 80px 26px 0 26px;
+  }
+}
+
+.resume-section {
+  margin-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+.resume-container .category-title {
+  position: relative;
+  top: -40px;
+  left: 0;
+
+  @media (min-width: @screen-md-min) {
+    padding-right: 34px;
+    text-align: right;
+  }
+}
+
+.resume-container .category-title h2 {
+  font-family: @display;
+  font-size: 24px;
+  font-weight: 600;
+  display: inline-block;
+  padding: 0 20px;
+  color: @main-2;
+  background-color: #fff;
+
+  @media (min-width: @screen-md-min) {
+    font-size: 28px;
+  }
+
+  &:before {
+    position: relative;
+    top: -5px;
+    left: -4px;
+    display: inline-block;
+    content: '_';
+    color: @main-1;
+    font-weight: 200;
+  }
+}
+
+.card-container {
+  position: relative;
+  margin-bottom: 70px;
+
+  @media (min-width: @screen-md-min) {
+    top: -125px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* ==========================================================================
+4. Resume card + Sidenote
+========================================================================== */
+
+.resume-card,
+.side-note {
+  @media (min-width: @screen-md-min) {
+    display: inline-block;
+    float: none;
+    vertical-align: middle;
+  }
+}
+
+.side-note {
+  font-size: 15px;
+  line-height: 1.3;
+  position: relative;
+  text-align: left;
+  color: @main-2;
+
+  @media (min-width: @screen-md-min) {
+    font-size: 16px;
+    top: 22px;
+    padding-right: 60px;
+    text-align: right;
+  }
+
+  &:before,
+  &:after {
+    position: absolute;
+    top: 50%;
+    display: none;
+    content: '';
+    transform: translateY(-50%);
+    background-color: @main-2;
+    @media (min-width: @screen-md-min) {
+      display: block;
+    }
+  }
+
+  &:before {
+    right: 40px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  &:after {
+    right: 20px;
+    width: 20px;
+    height: 1px;
+  }
+}
+
+.resume-card {
+  padding: 30px;
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px fade(@type-light, 17%);
+  border: 1px solid fade(@type-light, 20%);
+  margin-top: 13px;
+  @media (min-width: @screen-md-min) {
+    padding: 46px;
+    margin-top: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    color: @type-dark;
+  }
+
+  p,
+  .skill .title,
+  .tools li,
+  .list-unstyled li,
+  .title small {
+    font-size: 16px;
+    @media (min-width: @screen-md-min) {
+      font-size: 16px;
+    }
+  }
+
+  .title {
+    font-family: @serif;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0 0 0 0;
+    font-weight: 600;
+
+    @media (min-width: @screen-md-min) {
+      font-size: 26px;
+    }
+  }
+
+  small {
+    font-family: @sans-serif;
+    display: block;
+    padding-top: 10px;
+    color: fade(@type-light, 80%);
+  }
+
+  .title ~ p,
+  .skill,
+  .list {
+    margin-top: 25px;
+  }
+
+  p {
+    font-family: @serif;
+    line-height: 1.8;
+    margin-bottom: 22px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .skill {
+    .title {
+      font-family: @sans-serif;
+      padding-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .progress-bar,
+    .progress {
+      border-radius: 100px;
+    }
+
+    .progress-bar {
+      box-shadow: inset 0 1px 2px lighten(spin(@main-1, 40), 30%);
+      background-color: @main-1;
+    }
+  }
+
+  .list {
+    li {
+      line-height: 1.8;
+    }
+  }
+}
+
+/* ==========================================================================
+5. Footer
+========================================================================== */
+
+footer {
+  font-size: 17px;
+  font-weight: bold;
+  position: relative;
+  top: -18px;
+  padding-bottom: 20px;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, .4);
+}
+
+/* ==========================================================================
+6. Print
+========================================================================== */
+
+@media print {
+  * {
+    font-family: 'Georgia', serif !important;
+    font-weight: normal !important;
+    position: relative !important;
+    color: #000;
+  }
+
+  p {
+    margin-top: 10px !important;
+  }
+
+  body {
+    padding-top: 0;
+  }
+
+  .global-info {
+    top: 0;
+    left: 25px;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+
+    .avatar {
+      margin-right: 10px;
+    }
+
+    .name-jobtitle {
+      top: 30px;
+    }
+
+    .avatar img.img-responsive {
+      width: 60px;
+    }
+
+    .address-contact {
+      top: 40px;
+      right: 60px;
+      float: right;
+
+      p,
+      span {
+        font-size: 10px !important;
+      }
+
+      p {
+        margin: 0 !important;
+        padding: 0 0 0 15px;
+        border-left: 1px solid #000;
+      }
+    }
+
+    .name-jobtitle .title {
+      font-size: 22px;
+    }
+
+    .address {
+      margin-right: 5px;
+    }
+
+    .col-md-5 {
+      float: left;
+      width: 40%;
+    }
+
+    .col-md-7 {
+      display: inline-block !important;
+      float: right;
+      width: 60%;
+    }
+  }
+
+  .resume-section {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid #000;
+  }
+
+  .resume-container .category-title {
+    top: 0;
+    padding: 0;
+  }
+
+  .side-note {
+    font-size: 14px;
+    padding: 0 0 0 0;
+    color: #fff;
+  }
+
+  .resume-container .category-title h2 {
+    margin: 0;
+    padding: 0 0 20px 0;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  .resume-card {
+    padding: 16px 30px 30px 30px;
+  }
+
+  .resume-card .title {
+    padding-top: 15px;
+  }
+
+  .card-container {
+    top: 0;
+    margin-bottom: 40px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .progress-bar {
+    text-align: left;
+  }
+
+  .progress span {
+    left: 0;
+    margin: 0;
+    padding: 0;
+  }
+}

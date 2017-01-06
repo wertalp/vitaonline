@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Tamashi Themes">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+
+    <title>Pessoal Documentation — Tamashi Themes</title>
+
+    <!-- CSS
+    ================================================== -->
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Documentation CSS -->
+    <link href="style.css" rel="stylesheet" />
+
+
+    <!-- FONTS
+    ================================================== -->
+
+    <!-- Main font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
+
+    <!-- Font Awesome -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body data-spy="scroll" data-target=".tamashi-docs--menu">
+
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="title"><img src="assets/img/logo.png"><h1>Pessoal Documentation <small>This file contains all you need to get started</small></h1></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 tamashi-docs--menu">
+          <ul class="nav list-group">
+            <li><a href="#installation" class="page-scroll list-group-item">Installation</a></li>
+            <li><a href="#page-structure" class="page-scroll list-group-item">Page contents</a></li>
+            <li><a href="#less" class="page-scroll list-group-item">Using LESS and Grunt</a></li>
+            <li><a href="#css" class="page-scroll list-group-item">Using precompiled CSS</a></li>
+            <li><a href="#subscribe" class="page-scroll list-group-item">Subscribe</a></li>
+            <li><a href="#ftp" class="page-scroll list-group-item">FTP</a></li>
+          </ul>
+        </div>
+        <div class="col-md-8 main">
+          <section class="tamashi-docs" id="installation">
+            <h1>Installation</h1>
+            <p>First of all, thank you for purchasing this Bootstrap theme, your support makes it all possible!</p>
+
+            <p>This webpage takes you by hand on how to install this theme and will explain all technical details. If you are having difficulties when editing the theme I encourage you to read this page very thoroughly! You'll most likely find your answer here.</p>
+            <ol class="normal-ol">
+              <li>Unzip the downloaded file <code>tamashi-pessoal-2.0.0.zip</code> to a new folder that you can name however you'd like. Your unzipped folder will contain:
+                <ul>
+                  <li><code>public/</code> - Folder containing HTML files, images, compiled scripts and compiled CSS</li>
+                  <li><code>source/</code> - Folder containing all JS &amp; LESS files</li>
+                  <li><code>documentation/</code> - Folder containing the documentation</li>
+                </ul>
+              </li>
+              <li>Once your site is completed you will need to upload these files to your Web Server using FTP in order to use it on your website.</li>
+              <li>Make sure you upload the required files/folders listed below (don't upload the documentation folder):
+                <ul>
+                  <li><code>public/</code> - Upload the contents of the public folder to your FTP server</li>
+                </ul>
+              </li>
+              <li>Congratulations! Add your content and you'll be ready to launch your brand new website!</li>
+            </ol>
+          </section>
+          <section class="tamashi-docs" id="page-structure">
+            <h1>Pessoal's contents</h1>
+            <p>Pessoal consits out of 1 part, the main file, easy!</p>
+
+            <h3>Pessoal Pages</h3>
+            <ol class="normal-ol">
+              <li>Resume page <code>index.html</code></li>
+            </ol>
+          </section>
+          <section class="tamashi-docs" id="less">
+            <h1>Using LESS and Grunt</h1>
+            <p>Pessoal can be easily customized using LESS, all the theme specific files can be found in <code>source/less</code>. Afterwards Bootstrap and Pessoal are both included in <code>theme.less</code> and <code>main.less</code>, this is also the place where you can override components to your liking! After you've edited your LESS files simply compile the file <code>main.less</code> and you will have a brand new customized CSS files!</p>
+
+            <p>Alternatively you can also edit the precompiled <code>theme.css</code> and <code>theme.min.css</code> file contained in the <code>public/css</code> folder. Start on line 1175.</p>
+
+            <h3>Using Grunt to compile your LESS files</h3>
+            <p>Want to do this a tad more advanced? Grunt is the way to go.</p>
+            <p>We’ve also included a custom Grunt file, which can be used to quickly re-compile a theme’s CSS and JS. You’ll need to install Grunt before using our included gruntfile.js<br><code>npm install -g grunt-cli</code></p>
+
+            <p>When you’re done, make sure you’ve installed the rest of the theme’s dependencies:<br><code>npm install</code><br> and<br><code>npm install grunt-postcss pixrem autoprefixer cssnano</code></p>
+
+            <p>Afterwards just run this simple command from the root folder to compile all the edited JS &amp; LESS!<br><code>grunt</code></p>
+
+            <h3>Adding new JS plugins</h3>
+            <p>To add new JS plugins, simply add the downloaded plugin file to the <code>source/js/libs</code> folder and run Grunt, the plugin will automatically compile into the main JS file! Afterwards add your custom code to <code>global.js</code> located in <code>source/js</code></p>
+
+            <p class="bg-warning">Note: Running Grunt also starts a Browsersync session, so you can edit LESS files while the browser live reloads the changes, spiffy!</p>
+          </section>
+          <section class="tamashi-docs" id="css">
+            <h1>Using precompiled CSS</h1>
+            <p>Of course you don't need to use Grunt or LESS if you aren't accustomed to it, feel free to edit the compiled files: <code>theme.css</code> and <code>theme.min.css</code> file contained in the <code>public/css</code> folder. Start on line 1175.</p>
+          </section>
+          <section class="tamashi-docs" id="colour-schemes">
+            <h1>Colour Schemes</h1>
+            <p>Pessoal consists out of 4 colours, 1 main colour, 1 secondary colour and 2 neutral colors.<br> In the demo I liked for the page to be monotone, so I gave the 2 colors the same value.</p>
+
+            <div class="row">
+              <div class="col-md-3 primary"><div class="swatch"></div><div class="hex"><p>Primary / #3897ff</p></div></div>
+              <div class="col-md-3 secondary"><div class="swatch"></div><div class="hex"><p>Secondary / #673ab7</p></div></div>
+              <div class="col-md-3 tertiary"><div class="swatch"></div><div class="hex"><p>Tertiary / #f44336</p></div></div>
+              <div class="col-md-3 gray"><div class="swatch"></div><div class="hex"><p>Cool Gray / #445862</p></div></div>
+            </div>
+
+            <p>These colours are easily editable site-wide in the <code>variables.less</code> document. Located in <code>source/less/Pessoal</code> from line 1 to line 34. Edit them to match your brand!</p>
+          </section>
+
+          <section class="tamashi-docs" id="ftp">
+            <h1>Uploading to your FTP server</h1>
+
+            <p>Congratulation, you should now be done editing your website! Upload all the files and folders inside your <code>'public'</code> folder to the root of your remote server.</p>
+
+            <p>We recommend using <a href="https://filezilla-project.org/download.php?type=client">Filezilla</a> to upload your files. It is fast and easy to use.</p>
+            <p class="bg-warning">Note: Make sure you don't upload the 'documentation' and 'source' folder.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p class="text-center">Pessoal Theme Documentation.<br>&copy; Tamashi Themes. All Rights Reserved</p>
+    </footer>
+
+    <!-- JAVASCRIPT
+    ================================================== -->
+
+    <!-- Jquery Core -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+    <!-- Google Prettify -->
+    <link href="assets/css/prettify/prettify.css" rel="stylesheet">
+    <script src="assets/js/prettify/prettify.js"></script>
+
+    <script type="text/javascript">
+      !function ($) {
+        $(function(){
+          window.prettyPrint && prettyPrint()
+        })
+      }(window.jQuery)
+    </script>
+
+    <script src="assets/js/stickyMojo.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        $('.tamashi-docs--menu').stickyMojo({footerID: 'footer', contentID: '.main'});
+      });
+    </script>
+
+    <script src="assets/js/jquery.easing.min.js"></script>
+
+    <script type="text/javascript">
+      //jQuery for page scrolling feature - requires jQuery Easing plugin
+      $(function() {
+          $('.page-scroll').bind('click', function(event) {
+              var $anchor = $(this);
+              $('html, body').stop().animate({
+                  scrollTop: $($anchor.attr('href')).offset().top
+              }, 1500, 'easeInOutExpo');
+              event.preventDefault();
+          });
+      });
+    </script>
+
+  </body>
+</html>

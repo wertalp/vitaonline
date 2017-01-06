@@ -1,0 +1,79 @@
+/* ==========================================================================
+0. Import LESS files and main stylesheet
+========================================================================== */
+
+@import "../../node_modules/bootstrap/less/variables";
+@import "../../node_modules/bootstrap/less/mixins";
+@import "../../node_modules/bootstrap/less/forms";
+@import "../../node_modules/bootstrap/less/utilities";
+@import "../../node_modules/bootstrap/less/navbar";
+@import "../../node_modules/bootstrap/less/grid";
+@import "main";
+
+/* ==========================================================================
+1. Main variables (Edit these to customize colors of Pessoal)
+========================================================================== */
+
+// Pessoals main colors
+@main-1: #ff3417;
+@main-2: #ff3417;
+
+// Pessoals shade colors
+@type-dark: #544e5f;
+@type-light: #9d92b2;
+
+// Pessoals fonts (option to use different fonts)
+@sans-serif:  'Titillium Web', sans-serif;
+@serif:       @sans-serif;
+@display:     @sans-serif;
+
+// Pessoal variables
+@global-info-height: 120px;
+
+/* ==========================================================================
+2. Overwriting Bootstrap's variables
+========================================================================== */
+
+//== Navbar
+//
+//##
+
+// Basics of a navbar
+@navbar-height:                    87px;
+@navbar-margin-bottom:             @line-height-computed;
+@navbar-border-radius:             @border-radius-base;
+@navbar-padding-horizontal:        floor((@grid-gutter-width / 2));
+@navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
+@navbar-collapse-max-height:       340px;
+
+//=== Inverted navbar
+// Reset inverted navbar basics
+@navbar-inverse-color:                      lighten(@gray-light, 15%);
+@navbar-inverse-bg:                         #171717;
+@navbar-inverse-border:                     #000;
+
+// Inverted navbar links
+@navbar-inverse-link-color:                 #8b8b8b;
+@navbar-inverse-link-hover-color:           @main-2;
+@navbar-inverse-link-hover-bg:              transparent;
+@navbar-inverse-link-active-color:          @navbar-inverse-link-hover-color;
+@navbar-inverse-link-active-bg:             transparent;
+@navbar-inverse-link-disabled-color:        #444;
+@navbar-inverse-link-disabled-bg:           transparent;
+
+// Inverted navbar brand label
+@navbar-inverse-brand-color:                #fff;
+@navbar-inverse-brand-hover-color:          #fff;
+@navbar-inverse-brand-hover-bg:             transparent;
+
+// Inverted navbar toggle
+@navbar-inverse-toggle-hover-bg:            darken(@main-2, 10%);
+@navbar-inverse-toggle-icon-bar-bg:         darken(@main-2, 30%);
+@navbar-inverse-toggle-border-color:        #333;
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+//** Point at which the navbar becomes uncollapsed.
+@grid-float-breakpoint:     @screen-md-min;
